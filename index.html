@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="menu">
+                   <a href="index.html">すべて</a>
+                   <a href="index.html?2310ETAMF13">アイテム1</a>
+                   <a href="index.html?2110ETAMF12">アイテム2</a>
+        </div>  
+        <div id="parent">
+            <p id="year">year</p>
+            <p id="month">month</p>
+            <p id="kind">kind</p>
+        </div>
+    </div>  
+
+    <script>
+        let para = location.search;
+        // para = para.slice(1);
+        // para = para.split('&');
+        if(para){
+            console.log(para);
+            year = para.slice(1,-9);
+            month = para.slice(3,-7);
+            kind = para.slice(5,-4);
+            $("#year").text("20"+year+"年");
+            $("#month").text(month+"月購入");
+            if (kind == "ETA"){
+                $("#kind").text("エコテナーα");
+            }
+            if (kind == "TR-"){
+                $("#kind").text("トララック");
+            }
+            if (kind == "TRB"){
+                $("#kind").text("トララック　バー付き");
+            }
+        } 
+
+
+    </script>
+</body>
+</html>
