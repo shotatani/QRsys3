@@ -1,15 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>新川製作所ポータル</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
+
     <img class="img-thumbnail" src="https://shinkawa-g.jp/shinkawa_newwp/wp-content/themes/shinkawanew/img/shin_of_h1_logo.png" alt="">
     <h1 style="font-size: 7rem;" class="text-primary-emphasis">Portal</h1>
+    <p>ID入力欄</p>
+    <select name="" id="area1">
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+    </select>
+    <select name="" id="area2">
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+
+    </select>
+    <select name="" id="area3">
+        <option value="ETA">ETA</option>
+        <option value="TR-">TR-</option>
+        <option value="TRB">TRB</option>
+    </select>
+    <select name="" id="area4">
+        <option value="MF">MF</option>
+        <option value="UD">UD</option>
+    </select>
+    <input type="number" class="test1" id="idtest1" name="nametest1" placeholder="後ろ数字">
+    <input type="button" class="button1" value="入力内容を取得する">
     <div class="card bg-primary-subtle m-3">
         <div class="card-body">
             <h2 style="font-size: 3rem;">Info</h2>
@@ -20,7 +53,7 @@
                 <li class="list-group-item"><span class="badge bg-secondary">製品サイト</span>
                 <a id="site">URL</a>
                 </li>
-                <li class="list-group-item"><span class="badge bg-secondary">お問合せ</span><a href="tel:072-234-2261">tel:072-234-2261</a></li>
+                <li class="list-group-item"><span class="badge bg-secondary">お問合せ</span><a href="https://shinkawa-g.jp/contact/">tel:072-234-2261</a></li>
             </ul>
         </div>
     </div>
@@ -48,14 +81,27 @@
     </div>   -->
 
     <script>
+        $(function(){
+            //ボタンが押されたら入力内容をアラートで表示する
+            $('.button1').click(function(){
+                var text1 = $('#area1').val();
+                var text2 = $('#area2').val();
+                var text3 = $('#area3').val();
+                var text4 = $('#area4').val();
+                var text5 = $('.test1').val();
+
+                
+                window.location.href = '/index.html?'+text1+text2+text3+text4+text5;
+            });
+        });
         let para = location.search;
         // para = para.slice(1);
         // para = para.split('&');
         if(para){
             console.log(para);
-            year = para.slice(1,-9);
-            month = para.slice(3,-7);
-            kind = para.slice(5,-4);
+            year = para.slice(1,3);
+            month = para.slice(3,5);
+            kind = para.slice(5,8);
             $("#year").text("20"+year+"年");
             $("#month").text(month+"月");
             if (kind == "ETA"){
