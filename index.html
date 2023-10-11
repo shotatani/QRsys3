@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
-    <div class="wrap">
+    <img class="img-thumbnail" src="https://shinkawa-g.jp/shinkawa_newwp/wp-content/themes/shinkawanew/img/shin_of_h1_logo.png" alt="">
+    <h1 style="font-size: 7rem;" class="text-primary-emphasis">Portal</h1>
+    <div class="card bg-primary-subtle m-3">
+        <div class="card-body">
+            <h2 style="font-size: 3rem;">Info</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><span class="badge bg-secondary">製造日</span><p id="year">year</p><p id="month">month</p></li>
+                <li class="list-group-item"><span class="badge bg-secondary">製品名</span><p id="kind">kind</p>
+                </li>
+                <li class="list-group-item"><span class="badge bg-secondary">製品サイト</span>
+                <a id="site">URL</a>
+                </li>
+                <li class="list-group-item"><span class="badge bg-secondary">お問合せ</span><a href="tel:072-234-2261">tel:072-234-2261</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card bg-dark-subtle m-3">
+        <h3 class="text-center">ネステナーの中がわかる！<br>在庫管理システム(有料)↓</h3>
+        <button>準備中</button>
+    </div>
+    <style>
+        li{
+            font-size: large;
+            margin-top: 2px;
+        }
+    </style>
+    <!-- <div class="wrap">
         <div class="menu">
                    <a href="index.html">すべて</a>
                    <a href="index.html?2310ETAMF13">アイテム1</a>
@@ -18,7 +45,7 @@
             <p id="month">month</p>
             <p id="kind">kind</p>
         </div>
-    </div>  
+    </div>   -->
 
     <script>
         let para = location.search;
@@ -30,15 +57,21 @@
             month = para.slice(3,-7);
             kind = para.slice(5,-4);
             $("#year").text("20"+year+"年");
-            $("#month").text(month+"月購入");
+            $("#month").text(month+"月");
             if (kind == "ETA"){
                 $("#kind").text("エコテナーα");
+                $("#site").attr("href","https://shinkawa-g.jp/product-detail/ecotainer-alpha/");
+
             }
             if (kind == "TR-"){
                 $("#kind").text("トララック");
+                $("#site").attr("href","https://shinkawa-g.jp/product-detail/trurack/");
+
             }
             if (kind == "TRB"){
                 $("#kind").text("トララック　バー付き");
+                $("#site").attr("href","https://shinkawa-g.jp/product-detail/trurack/")
+
             }
         } 
 
